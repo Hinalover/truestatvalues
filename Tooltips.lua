@@ -11,10 +11,10 @@ local statLabelMap = {
     [CR_MASTERY] = function()
         local primaryTalentTree = GetSpecialization();
         if (primaryTalentTree) then
-            local masterySpell, masterySpell2 = GetSpecializationMasterySpells(primaryTalentTree);
+            local masterySpell = GetSpecializationMasterySpells(primaryTalentTree);
             if (masterySpell) then
-                local name = GetSpellInfo(masterySpell);
-                return name;
+                local name = C_Spell.GetSpellName(masterySpell);
+                return format(name, STAT_MASTERY);
             end
         end
         return nil;
